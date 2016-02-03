@@ -1,5 +1,0 @@
-# Gestione Ristorante
-
-**Informazioni Progetto**
-
-
