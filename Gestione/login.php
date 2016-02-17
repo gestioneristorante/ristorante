@@ -6,9 +6,9 @@
     <head>
         <meta charset="UTF-8">
         <title>iRistorante</title>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/>
-        <script src="bootstrap/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" type="text/css"/>
+        <script src="../bootstrap/jquery.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -26,31 +26,13 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <?php
-                        if (isset($_SESSION['nome_utente']) && $_SESSION['tipo'] == 'gestore') {
-                            echo '
-                            <li class = "dropdown">
-                            <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown" role = "button" aria-haspopup = "true" aria-expanded = "false">Gestione Ristorante <span class = "caret"></span></a>
-                            <ul class = "dropdown-menu">
-                            <li><a href = "gestione_personale.php">Gestione personale</a></li>
-                            <li><a href = "gestione_menu.php">Gestione menu</a></li>
-                            <li><a href = "gestione_piatti.php">Gestione piatti</a></li>
-                            <li><a href = "gestione_tavoli.php">Gestione tavoli</a></li>
-                            </ul>
-                            </li>';
-                        }
-                        ?>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="logout.php">Logout</a></li>
-                    </ul>
+
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div id="login" style="width: 100%; text-align: center; margin-top: 200px;">
             <h1>Login</h1>
-            <form action="control.php" method="POST">
+            <form action="<?php $_PHP_SELF ?>" method="POST">
                 <table class="table" style="width: 100%; text-align: center;">
                     <tr>
                         <td>
@@ -64,11 +46,14 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" value="Login" class="btn btn-success">
+                            <input type="submit" name="submit" value="Login" class="btn btn-success">
                         </td>
                     </tr>
                 </table>
             </form>
+            <?php
+            include 'control.php';
+            ?>
         </div>
     </body>
 </html>
